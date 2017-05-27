@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>{{ me }}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="{{ env.path.assets }}/app.css" />
+        {%- block stylesheets -%}{% endblock %}
+    </head>
+    <body>
+        {%- block body %}
+            {% include './components/profile/profile.html.twig' %}
+        {% endblock -%}
+        <script src="{{ env.path.assets }}/app.js"></script>
+        {%- block javascripts -%}{%- endblock %}
+    </body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "@alexstepankov/alexstepankov.github.io",
+  "description": "Alex Stepankov webpage",
+  "version": "0.0.1-beta.0",
+  "keywords": [
+    "webpage",
+    "website"
+  ],
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "development": "gulp",
+    "production": "gulp -p"
+  },
+  "dependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-twig": "^0.7.0"
+  },
+  "homepage": "https://alexstepankov.github.io/",
+  "author": {
+    "name": "Alex Stepankov",
+    "email": "xeurun@yahoo.com",
+    "url": "https://alexstepankov.github.io/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexstepankov/alexstepankov.github.io.git"
+  }
+}
