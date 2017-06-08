@@ -1,5 +1,7 @@
-#center-block {
-	position: relative;
+#right-block {
+	display: none;
+	position: absolute;
+	right: 1em;
 	max-width: 100%;
 	min-width: 27em;
 	@include padding(4.5em, 1em);
@@ -17,42 +19,10 @@
 					'transform #{_duration(main)} ease'
 	));
 
-	.avatar {
-		position: relative;
-		display: block;
-		margin-bottom: _size(element-margin);
-
-		img {
-			display: block;
-			margin: 0 auto;
-			border-radius: 100%;
-			box-shadow: 0 0 0 1.5em _palette(bg);
-		}
-
-		&:before {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 50%;
-			left: -1em;
-			width: calc(100% + 2em);
-			height: _size(border-width);
-			z-index: -1;
-			background: _palette(border);
-		}
-	}
-
 	@include breakpoint(xsmall) {
 		min-width: 0;
 		width: 100%;
 		@include padding(4em, 2em);
-
-		.avatar {
-			&:before {
-				left: -2em;
-				width: calc(100% + 4em);
-			}
-		}
 	}
 
 	body.is-loading & {

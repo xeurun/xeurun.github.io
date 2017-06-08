@@ -123,9 +123,9 @@ Gulp
         'watch',
         function ()
         {
-            Gulp.watch(Path.join(PATH_MAP.SRC, FILE_MAP.MAIN_TEMPLATE[0]), ['compile-template']);
-            Gulp.watch(Path.join(PATH_MAP.SRC, FILE_MAP.MAIN_STYLE[0]), ['compile-style']);
-            Gulp.watch(Path.join(PATH_MAP.SRC, FILE_MAP.MAIN_SCRIPT[0]), ['compile-script']);
+            Gulp.watch(Path.join(PATH_MAP.SRC, '**', '*.js'), ['compile-script']);
+            Gulp.watch(Path.join(PATH_MAP.SRC, '**', '*.scss'), ['compile-style']);
+            Gulp.watch(Path.join(PATH_MAP.SRC, '**', '*.twig'), ['compile-template']);
         }
     );
 

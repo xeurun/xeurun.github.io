@@ -1,2 +1,7 @@
-@import 'components/common/common.scss';
-@import 'components/profile/profile.scss';
+$asset-fonts-path: "common/fonts" !default;
+$asset-images-path: "common/images" !default;
+
+@import 'components/common/common';
+@import 'components/social/social';
+@import 'components/profile/profile';
+@import 'components/portfolio/portfolio';

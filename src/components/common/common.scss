@@ -1,4 +1,10 @@
-$fa-font-path: "common/fonts" !default;
+$fa-font-path: $asset-fonts-path;
+
+@import 'sass/libs/vars';
+@import 'sass/libs/functions';
+@import 'sass/libs/mixins';
+@import 'sass/libs/skel';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300');
 
 @import "sass/variables";
 @import "sass/mixins";
@@ -13,3 +19,66 @@ $fa-font-path: "common/fonts" !default;
 @import "sass/stacked";
 @import "sass/icons";
 @import "sass/screen-reader";
+
+
+@include skel-breakpoints((
+        xlarge: '(max-width: 1680px)',
+        large: '(max-width: 1280px)',
+        medium: '(max-width: 960px)',
+        small: '(max-width: 736px)',
+        xsmall: '(max-width: 480px)',
+        xxsmall: '(max-width: 360px)'
+));
+
+@include skel-layout((
+        reset: 'full',
+        boxModel: 'border'
+));
+
+@mixin icon-alt($content: false, $link: false) {
+  @include icon($content);
+  $size: _size(border-width) * 1.25;
+
+  &:before {
+    color: _palette(bg);
+    text-shadow: $size 0px 0px _palette(border),
+            ($size * -1) 0px 0px _palette(border),
+    0px $size 0px _palette(border),
+    0px ($size * -1) 0px _palette(border);
+
+  }
+
+  @if $link {
+    &:hover {
+      &:before {
+        text-shadow: $size 0px 0px _palette(highlight),
+                ($size * -1) 0px 0px _palette(highlight),
+        0px $size 0px _palette(highlight),
+        0px ($size * -1) 0px _palette(highlight);
+      }
+    }
+  }
+}
+
+// Base.
+
+@import 'sass/base/page';
+@import 'sass/base/typography';
+
+// Component.
+
+@import 'sass/components/form';
+@import 'sass/components/icon';
+@import 'sass/components/list';
+@import 'sass/components/button';
+
+// Libs
+
+@import 'sass/libs/vars';
+@import 'sass/libs/functions';
+@import 'sass/libs/mixins';
+
+// Layout.
+
+@import 'sass/layout/footer';
+@import 'sass/layout/wrapper';

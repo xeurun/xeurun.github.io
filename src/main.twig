@@ -8,9 +8,18 @@
         {%- block stylesheets -%}{% endblock %}
     </head>
     <body>
-        {%- block body %}
-            {% include './components/profile/profile.html.twig' %}
-        {% endblock -%}
+        <div id="wrapper">
+            {%- block body %}
+                {% include './components/social/social.html.twig' %}
+                {% include './components/profile/profile.html.twig' %}
+                {% include './components/portfolio/portfolio.html.twig' %}
+            {% endblock -%}
+            <footer id="footer">
+                <ul class="copyright">
+                    <li>&copy; {{ me }}</li>
+                </ul>
+            </footer>
+        </div>
         <script src="{{ env.path.assets }}/app.js"></script>
         {%- block javascripts -%}{%- endblock %}
     </body>
