@@ -1,0 +1,37 @@
+{
+  "name": "alexstepankov-alexstepankov.github.io",
+  "description": "Alex Stepankov webpage",
+  "moduleType": [
+    "globals",
+    "node",
+    "es6"
+  ],
+  "keywords": [
+    "webpage",
+    "website"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "font-awesome": "fontawesome#^4.7.0",
+    "skel": "^3.0.1"
+  },
+  "main": [
+    "./src/main.js",
+    "./src/main.scss"
+  ],
+  "homepage": "https://alexstepankov.github.io/",
+  "authors": [
+    "Alex Stepankov <xeurun@yahoo.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexstepankov/alexstepankov.github.io.git"
+  }
+}

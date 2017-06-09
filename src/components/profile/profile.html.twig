@@ -6,7 +6,7 @@
         <h1>{{ me }}</h1>
         <p>{{ position }}</p>
     </header>
-    <footer>
+    <main>
         <ul class="icons">
             <li>
                 <a
@@ -33,5 +33,20 @@
                 </a>
             </li>
         </ul>
+
+        {% if env.env == 'development' %}
+        <a
+                href="#"
+                class="icon fa-chevron-circle-down">
+            Подробнее
+        </a>
+        {% endif %}
+    </main>
+    {% if env.env == 'development' %}
+    <footer>
+        <hr />
+        <h2>Подробнее</h2>
+        <hr />
     </footer>
+    {% endif %}
 </section>

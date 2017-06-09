@@ -1,5 +1,7 @@
 #right-block {
-	display: none;
+	@if($env == 'production') {
+		display: none;
+	}
 	position: absolute;
 	right: 1em;
 	max-width: 100%;

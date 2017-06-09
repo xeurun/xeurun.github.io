@@ -1,7 +1,10 @@
+$fa-font-path: "vendor/fonts" !default;
+@import "../bower_components/font-awesome/scss/font-awesome";
+
 $asset-fonts-path: "common/fonts" !default;
 $asset-images-path: "common/images" !default;
-
 @import 'components/common/common';
+
 @import 'components/social/social';
 @import 'components/profile/profile';
 @import 'components/portfolio/portfolio';

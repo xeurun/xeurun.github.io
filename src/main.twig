@@ -7,13 +7,15 @@
         <link rel="stylesheet" href="{{ env.path.assets }}/app.css" />
         {%- block stylesheets -%}{% endblock %}
     </head>
-    <body>
+    <body class="is-loading">
         <div id="wrapper">
-            {%- block body %}
-                {% include './components/social/social.html.twig' %}
-                {% include './components/profile/profile.html.twig' %}
-                {% include './components/portfolio/portfolio.html.twig' %}
-            {% endblock -%}
+            <main>
+                {%- block body %}
+                    {% include './components/social/social.html.twig' %}
+                    {% include './components/profile/profile.html.twig' %}
+                    {% include './components/portfolio/portfolio.html.twig' %}
+                {% endblock -%}
+            </main>
             <footer id="footer">
                 <ul class="copyright">
                     <li>&copy; {{ me }}</li>

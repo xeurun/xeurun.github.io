@@ -15,12 +15,15 @@
     "production": "gulp -p"
   },
   "dependencies": {
+    "bower": "^1.8.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-imagemin": "^3.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-twig": "^0.7.0"
+    "gulp-sass-variables": "^1.1.1",
+    "gulp-twig": "^0.7.0",
+    "merge-stream": "^1.0.1"
   },
   "homepage": "https://alexstepankov.github.io/",
   "author": {
