@@ -4,23 +4,31 @@
         <title>Алексей Степанков</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="app/assets/app.css" /></head>
-    <body class="is-loading">
+        <link rel="stylesheet" href="app/assets/app.css" />
+        <link rel="stylesheet" href="app/assets/vendor/angular/angular-csp.css" />
+        <script src="app/assets/vendor/angular/angular.js"></script>
+    </head>
+    <body class="loading" ng-app="app">
         <div id="wrapper">
             <main>
-                    <section id="left-block">
+                    <section class="block left-block" ng-controller="SocialController as social">
     <header>
-        <h1>Блог</h1>
+        <h1>Я в сети</h1>
     </header>
     <footer>
-        <ul class="posts">
-            <li>
-                Пост #1
+        <ul class="links" ng-init="social.loadLinks()">
+            <li ng-repeat="link in social.getLinks()">
+                <a
+                        href="[[ link.name ]]"
+                        target="_blank"
+                >
+                    [[ link.url ]]
+                </a>
             </li>
         </ul>
     </footer>
 </section>
-                    <section id="center-block">
+                    <section class="block center-block" ng-controller="ProfileController as profile">
     <header>
         <span class="avatar">
             <img src="app/assets/profile/images/avatar.png" alt=""/>
@@ -60,14 +68,14 @@
     </main>
     
 </section>
-                    <section id="right-block">
+                    <section class="block right-block" ng-controller="PortfolioController as portfolio">
     <header>
         <h1>Портфолио</h1>
     </header>
     <footer>
-        <ul class="projects">
-            <li>
-                Проект #1
+        <ul class="projects" ng-init="portfolio.loadProjects()">
+            <li ng-repeat="project in portfolio.getProjects()">
+                Проект #[[ project.name ]]
             </li>
         </ul>
     </footer>
@@ -80,5 +88,12 @@
             </footer>
         </div>
         <script src="app/assets/app.js"></script>
+        <script src="app/assets/common/common.js"></script>
+        <script src="app/assets/common/js/providers/FileProvider.js"></script>
+        <script src="app/assets/common/js/providers/FakeProvider.js"></script>
+        <script src="app/assets/common/js/services/CrawlerService.js"></script>
+        <script src="app/assets/social/js/controllers/SocialController.js"></script>
+        <script src="app/assets/profile/js/controllers/ProfileController.js"></script>
+        <script src="app/assets/portfolio/js/controllers/PortfolioController.js"></script>
     </body>
 </html>

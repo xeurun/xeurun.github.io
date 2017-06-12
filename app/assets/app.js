@@ -3,7 +3,7 @@ if ('addEventListener' in window) {
         'load',
         function()
         {
-            document.body.className = document.body.className.replace(/\bis-loading\b/, 'random-background');
+            document.body.className = document.body.className.replace(/\bloading\b/, 'random-background');
         }
     );
 }

@@ -1,4 +1,4 @@
-<section id="center-block">
+<section class="block center-block" ng-controller="ProfileController as profile">
     <header>
         <span class="avatar">
             <img src="{{ env.path.assets }}/profile/images/avatar.png" alt=""/>
@@ -37,13 +37,16 @@
         {% if env.env == 'development' %}
         <a
                 href="#"
-                class="icon fa-chevron-circle-down">
+                class="icon fa-chevron-circle-down"
+                ng-click="profile.setExpand()"
+                ng-class="profile.isExpand() ? 'active' : ''"
+        >
             Подробнее
         </a>
         {% endif %}
     </main>
     {% if env.env == 'development' %}
-    <footer>
+    <footer ng-show="profile.isExpand()">
         <hr />
         <h2>Подробнее</h2>
         <hr />

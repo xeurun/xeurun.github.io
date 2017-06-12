@@ -35,6 +35,10 @@ a {
 	&:hover {
 		color: _palette(highlight);
 	}
+
+	&.active {
+		color: _palette(highlight);
+	}
 }
 
 strong, b {

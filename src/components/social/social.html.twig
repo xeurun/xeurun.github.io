@@ -1,11 +1,16 @@
-<section id="left-block">
+<section class="block left-block" ng-controller="SocialController as social">
     <header>
-        <h1>Блог</h1>
+        <h1>Я в сети</h1>
     </header>
     <footer>
-        <ul class="posts">
-            <li>
-                Пост #1
+        <ul class="links" ng-init="social.loadLinks()">
+            <li ng-repeat="link in social.getLinks()">
+                <a
+                        href="[[ link.name ]]"
+                        target="_blank"
+                >
+                    [[ link.url ]]
+                </a>
             </li>
         </ul>
     </footer>

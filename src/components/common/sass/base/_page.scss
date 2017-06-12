@@ -1,14 +1,14 @@
 @include skel-breakpoints((
-	xlarge: '(max-width: 1680px)',
-	large: '(max-width: 1280px)',
-	medium: '(max-width: 960px)',
-	small: '(max-width: 736px)',
-	xsmall: '(max-width: 480px)',
+	xlarge:  '(max-width: 1680px)',
+	large:   '(max-width: 1280px)',
+	medium:  '(max-width: 960px)',
+	small:   '(max-width: 736px)',
+	xsmall:  '(max-width: 480px)',
 	xxsmall: '(max-width: 360px)'
 ));
 
 @include skel-layout((
-	reset: 'full',
+	reset:    'full',
 	boxModel: 'border'
 ));
 
@@ -19,7 +19,7 @@
 }
 
 body {
-	&.is-loading {
+	&.loading {
 		*, *:before, *:after {
 			@include vendor('animation', 'none !important');
 			@include vendor('transition', 'none !important');
@@ -74,7 +74,7 @@ body {
 		@include vendor('transition', 'opacity #{_duration(bg)} ease-out');
 	}
 
-	&.is-loading {
+	&.loading {
 		&:after {
 			opacity: 1;
 		}

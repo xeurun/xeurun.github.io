@@ -1,23 +1,11 @@
-$duration: (
-	transition:			0.2s,
-	bg:					1.75s,
-	main:				1s
-);
-
-$size: (
-	border-radius:		4px,
-	border-width:		1px,
-	element-height:		2.75em,
-	element-margin:		1.5em,
-	letter-spacing:		0.2em
-);
-
+// Стандартный шрифт
 $font: (
 	family:				('Source Sans Pro', Helvetica, sans-serif),
 	family-fixed:		('Courier New', monospace),
 	weight:				300
 );
 
+// Палитра цветов
 $palette: (
 	bg:					#ffffff,
 	bg-alt:				#e1dfe8,
@@ -28,4 +16,20 @@ $palette: (
 	accent1:			#ffa596,
 	accent2:			#00e4ff,
 	highlight:			#ff7496
+);
+
+// Размеры элементоы
+$size: (
+	border-radius:		4px,
+	border-width:		1px,
+	element-height:		2.75em,
+	element-margin:		1.5em,
+	letter-spacing:		0.2em
+);
+
+// Время действия анимаций
+$duration: (
+	transition:			0.2s,
+	bg:					1.75s,
+	main:				1s
 );

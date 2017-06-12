@@ -1,11 +1,11 @@
-<section id="right-block">
+<section class="block right-block" ng-controller="PortfolioController as portfolio">
     <header>
         <h1>Портфолио</h1>
     </header>
     <footer>
-        <ul class="projects">
-            <li>
-                Проект #1
+        <ul class="projects" ng-init="portfolio.loadProjects()">
+            <li ng-repeat="project in portfolio.getProjects()">
+                Проект #[[ project.name ]]
             </li>
         </ul>
     </footer>

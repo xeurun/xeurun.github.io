@@ -1,21 +1,5 @@
-#center-block {
+.center-block {
 	position: relative;
-	max-width: 100%;
-	min-width: 27em;
-	@include padding(4.5em, 1em);
-
-	background: _palette(bg);
-	border-radius: _size(border-radius);
-	cursor: default;
-	opacity: 0.95;
-	text-align: center;
-
-	@include vendor('transform-origin', '50% 50%');
-	@include vendor('transform', 'rotateX(0deg)');
-	@include vendor('transition', (
-					'opacity #{_duration(main)} ease',
-					'transform #{_duration(main)} ease'
-	));
 
 	.avatar {
 		position: relative;
@@ -43,20 +27,11 @@
 	}
 
 	@include breakpoint(xsmall) {
-		min-width: 0;
-		width: 100%;
-		@include padding(4em, 2em);
-
 		.avatar {
 			&:before {
 				left: -2em;
 				width: calc(100% + 4em);
 			}
 		}
-	}
-
-	body.is-loading & {
-		opacity: 0;
-		@include vendor('transform', 'rotateX(15deg)');
 	}
 }

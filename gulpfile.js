@@ -1,6 +1,7 @@
 'use strict';
 
 // Компоненты
+let FS = require('fs');
 let Path = require('path');
 let Del = require('del');
 let MergeStream = require('merge-stream');
@@ -39,12 +40,16 @@ const IMAGE_OPTIMIZATION_INTERLACED = true;
 const DIR_NAME_MAP = {
     BOWER: 'bower_components',
     FONT_AWESOME: 'font-awesome',
+    ANGULAR: 'angular',
     VENDOR: 'vendor',
     SRC: 'src',
+    DATA: 'data',
     APP: 'app',
     ASSETS: 'assets',
     IMAGES: 'images',
     FONTS: 'fonts',
+    JS: 'js',
+    CSS: 'css',
     MODULES: 'components',
 };
 /**
@@ -68,9 +73,36 @@ PATH_MAP.FONTS = Path.join(PATH_MAP.ASSETS, DIR_NAME_MAP.FONTS);
  * @type {Object.<string, string[]>}
  */
 const FILE_MAP = {
+    TWIG_DATA: ['twig.json', '', ''],
     MAIN_STYLE: ['main.scss', 'app.css', PATH_MAP.ASSETS],
     MAIN_SCRIPT: ['main.js', 'app.js', PATH_MAP.ASSETS],
     MAIN_TEMPLATE: ['main.twig', 'index.html', PATH_MAP.ROOT],
+    DATA: [
+        [
+            Path.join(PATH_MAP.SRC, DIR_NAME_MAP.DATA, 'links.json'),
+            Path.join(DIR_NAME_MAP.SRC, DIR_NAME_MAP.DATA),
+            Path.join(PATH_MAP.ASSETS, DIR_NAME_MAP.DATA),
+        ]
+    ],
+    CSS: [
+        [
+            Path.join(PATH_MAP.BOWER, DIR_NAME_MAP.ANGULAR, 'angular-csp.css'),
+            Path.join(DIR_NAME_MAP.BOWER),
+            Path.join(PATH_MAP.ASSETS, DIR_NAME_MAP.VENDOR),
+        ]
+    ],
+    JS: [
+        [
+            Path.join(PATH_MAP.BOWER, DIR_NAME_MAP.ANGULAR, 'angular.js'),
+            Path.join(DIR_NAME_MAP.BOWER),
+            Path.join(PATH_MAP.ASSETS, DIR_NAME_MAP.VENDOR),
+        ],
+        [
+            Path.join(PATH_MAP.SRC, DIR_NAME_MAP.MODULES, '**', '**', '**', '*.js'),
+            Path.join(DIR_NAME_MAP.SRC, DIR_NAME_MAP.MODULES),
+            Path.join(PATH_MAP.ASSETS)
+        ]
+    ],
     IMAGES: [
         [
             Path.join(PATH_MAP.SRC, DIR_NAME_MAP.MODULES, '**', DIR_NAME_MAP.IMAGES, '**', '*'),
@@ -86,11 +118,29 @@ const FILE_MAP = {
         ],
         [
             Path.join(PATH_MAP.BOWER, DIR_NAME_MAP.FONT_AWESOME, DIR_NAME_MAP.FONTS, '*'),
-            Path.join(DIR_NAME_MAP.BOWER, DIR_NAME_MAP.FONT_AWESOME, '**'),
-            Path.join(PATH_MAP.ASSETS, DIR_NAME_MAP.VENDOR, DIR_NAME_MAP.FONTS),
+            Path.join(DIR_NAME_MAP.BOWER),
+            Path.join(PATH_MAP.ASSETS, DIR_NAME_MAP.VENDOR),
         ]
     ]
 };
+
+/**
+ * Получение данных для twig шаблона
+ * @returns {{data}}
+ */
+function getTwigData()
+{
+    // Загружаем данные для шаблонизатора
+    let data = JSON.parse(FS.readFileSync(Path.join(PATH_MAP.SRC, DIR_NAME_MAP.DATA, FILE_MAP.TWIG_DATA[0])));
+
+    // Устанавливаем дополнительные переменные среды
+    data.env.env = NODE_ENV;
+    data.env.path.assets = Path.join(DIR_NAME_MAP.APP, DIR_NAME_MAP.ASSETS);
+
+    return {
+        'data': data
+    };
+}
 
 Gulp
     // Удаление всех подготовленных файлов приложения
@@ -104,18 +154,7 @@ Gulp
         {
             return Gulp
                 .src(Path.join(PATH_MAP.SRC, FILE_MAP.MAIN_TEMPLATE[0]))
-                .pipe(GTwig({
-                    data: {
-                        me: 'Алексей Степанков',
-                        position: 'Ведущий разработчик',
-                        env: {
-                            env: NODE_ENV,
-                            path: {
-                                assets: Path.join(DIR_NAME_MAP.APP, DIR_NAME_MAP.ASSETS)
-                            }
-                        }
-                    }
-                }))
+                .pipe(GTwig(getTwigData()))
                 .pipe(GRename(FILE_MAP.MAIN_TEMPLATE[1]))
                 .pipe(Gulp.dest(FILE_MAP.MAIN_TEMPLATE[2]));
         }
@@ -146,14 +185,50 @@ Gulp
                 .pipe(Gulp.dest(FILE_MAP.MAIN_SCRIPT[2]));
         }
     )
-    // Копирования шрифтов
+    // Копирования данных
     .task(
-        'copy-fonts',
+        'copy-data',
         function()
         {
             let stream = MergeStream();
 
-            FILE_MAP.FONTS.forEach(function(fileMap) {
+            FILE_MAP.DATA.forEach(function(fileMap) {
+                stream.add(
+                    Gulp
+                        .src(fileMap[0], { base: fileMap[1] })
+                        .pipe(Gulp.dest(fileMap[2]))
+                );
+            });
+
+            return stream;
+        }
+    )
+    // Копирования стилей
+    .task(
+        'copy-css',
+        function()
+        {
+            let stream = MergeStream();
+
+            FILE_MAP.CSS.forEach(function(fileMap) {
+                stream.add(
+                    Gulp
+                        .src(fileMap[0], { base: fileMap[1] })
+                        .pipe(Gulp.dest(fileMap[2]))
+                );
+            });
+
+            return stream;
+        }
+    )
+    // Копирования скриптов
+    .task(
+        'copy-js',
+        function()
+        {
+            let stream = MergeStream();
+
+            FILE_MAP.JS.forEach(function(fileMap) {
                 stream.add(
                     Gulp
                         .src(fileMap[0], { base: fileMap[1] })
@@ -186,6 +261,24 @@ Gulp
 
             return stream;
         }
+    )
+    // Копирования шрифтов
+    .task(
+        'copy-fonts',
+        function()
+        {
+            let stream = MergeStream();
+
+            FILE_MAP.FONTS.forEach(function(fileMap) {
+                stream.add(
+                    Gulp
+                        .src(fileMap[0], { base: fileMap[1] })
+                        .pipe(Gulp.dest(fileMap[2]))
+                );
+            });
+
+            return stream;
+        }
     );
 
 // Отслеживание изменений файлов приложения
@@ -205,6 +298,9 @@ Gulp
     .task(
         'copy',
         [
+            'copy-data',
+            'copy-js',
+            'copy-css',
             'copy-images',
             'copy-fonts',
         ]

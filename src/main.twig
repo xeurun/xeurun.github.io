@@ -5,9 +5,11 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="{{ env.path.assets }}/app.css" />
+        <link rel="stylesheet" href="{{ env.path.assets }}/vendor/angular/angular-csp.css" />
         {%- block stylesheets -%}{% endblock %}
+        <script src="{{ env.path.assets }}/vendor/angular/angular.js"></script>
     </head>
-    <body class="is-loading">
+    <body class="loading" ng-app="app">
         <div id="wrapper">
             <main>
                 {%- block body %}
@@ -23,6 +25,13 @@
             </footer>
         </div>
         <script src="{{ env.path.assets }}/app.js"></script>
+        <script src="{{ env.path.assets }}/common/common.js"></script>
+        <script src="{{ env.path.assets }}/common/js/providers/FileProvider.js"></script>
+        <script src="{{ env.path.assets }}/common/js/providers/FakeProvider.js"></script>
+        <script src="{{ env.path.assets }}/common/js/services/CrawlerService.js"></script>
+        <script src="{{ env.path.assets }}/social/js/controllers/SocialController.js"></script>
+        <script src="{{ env.path.assets }}/profile/js/controllers/ProfileController.js"></script>
+        <script src="{{ env.path.assets }}/portfolio/js/controllers/PortfolioController.js"></script>
         {%- block javascripts -%}{%- endblock %}
     </body>
 </html>
