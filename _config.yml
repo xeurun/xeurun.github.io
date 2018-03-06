@@ -1,0 +1,12 @@
+include: [".well-known"]
+exclude:
+  - src
+  - _markup
+  - README.md
+  - .gitignore
+  - bower.json
+  - gulpfile.json
+  - LICENSE
+  - package.json
+  - package-lock.json
+  - TODO

@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/xeurun
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://xeurun.github.io
+  * I am xeurun (https://keybase.io/xeurun) on keybase.
+  * I have a public key with fingerprint 7CD9 203D 6414 3AAE 16B3  3592 8C75 E365 D84D 523D
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101c7b341b62ab815988b2f4d20dc1dd56a9865bce45bc36afebb4d4da24eaa76020a",
+      "fingerprint": "7cd9203d64143aae16b335928c75e365d84d523d",
+      "host": "keybase.io",
+      "key_id": "8c75e365d84d523d",
+      "kid": "0101c7b341b62ab815988b2f4d20dc1dd56a9865bce45bc36afebb4d4da24eaa76020a",
+      "uid": "8e5218dae7ba09c87e86c0ecc6d36c19",
+      "username": "xeurun"
+    },
+    "service": {
+      "hostname": "xeurun.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1520367678,
+  "expire_in": 157680000,
+  "prev": "4d94c2729c7480eeb2bb56596c8f9d63e08e704de7fc3651b9d8d078c86517d7",
+  "seqno": 47,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMIlAnicrVJbSFRRFB3LsiRLtNJwILh9RCJ1n+ecO5QlWGZFEiJZJtM9jxkvY/dO
+d+6MymSB/hgTA/WRYBS9KImICiJ7QUkWFZUQ9MT6KCx6+KCgCNHO7fER9Nn5OIez
+91pr773YN3Mm+7Izdl64fDDHPXcx496Nrrhv86FvpUkB27RFCCSFCPv5sEbKYm4w
+YlIhIIiSKBGIFVXCQDYwkjQdISyHVCqLlEiUasDQEdAwYSq/FGCEGMYqVakhq8ww
+IBBl0RBKhJBphZkTdUzL5bKQUF0WFQpUSVUMg0kAK4qmy4hAjSlAo0ilmqxQTmyw
+Yx6DN4eNGFts2jzGP8Gf7f0D/5/7jv+qwzRZQtRgEBuiThBkCBCREQKoAoike8AY
+cyxjG+PoZhZ34pbQWiLwWMIkzLPVm+Ov/OKw6TbE8a+Joo7t2sRu5NkG143GAh7b
+bYl68CaGg7+Fgti0KHeSMxLMiZm2JQQkjiSu6SlLGjcVQABRicCao6bDgqaH0CBA
+Ij9eHZbgkirVVSJDWSdQRSJjWMZYA5oOCArpFChMRAyKKmUwxL3RJKxTREWICLdM
+ghQK3mjbLVsIqJD3aYS5ZswMW4Ybd5jQ2nt9S6YvI9s3dcokb8V82dNz/yze6/Ks
+iZYNb+bmhbrSfV9v1q5yj657ej//a2uW/3THSOrlivEIO8Tezgzln7qyckZ14ZLi
+/Oz6wU8Dm+orerb2k7J2Jr7bVzGQW70/Xfe48MqWqqLpn8wFJQ4cvVtwuOb+fOlx
+TuLI5avXLnU2Plj9rjTZA/ubvg/OK3/ff6A2sVa9BVONE4PPdvR99uftTtSLYy+W
+uVV71gllwx3p7mkd7cXrn9bVf2geGVozXmBXVhbeHnLb+mo6hxZGh1No+eSH59c8
+f1K+S/1ittYsHTh+Yt5orx8UPfLfSZdZkY/6m72vivSNdd3HZuG3ZW09z1MfkwsW
+jZ35cOdk09k5dk9mvHq0KzI7+QMCpkbB
+=3Wus
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/xeurun
+
+==================================================================
