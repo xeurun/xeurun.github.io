@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>{{ me }}</title>
+        <title>{{ me.name ~ ' ' ~ me.surname }}</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -27,7 +27,7 @@
             </main>
             <footer id="footer">
                 <ul class="copyright">
-                    <li>&copy; {{ me }}</li>
+                    <li class="me">&copy; {{ me.name ~ ' ' ~ me.surname }}</li>
                 </ul>
             </footer>
         </div>

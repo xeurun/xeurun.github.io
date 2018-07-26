@@ -18,3 +18,7 @@
 // Загружаем базовые стили секций
 @import 'sass/layout/wrapper';
 @import 'sass/layout/footer';
+
+.me {
+  font-weight: bold;
+}
