@@ -12,6 +12,9 @@ let GImagemin = require('gulp-imagemin');
 let GRename = require('gulp-rename');
 let GSassVariables = require('gulp-sass-variables');
 
+var realFavicon = require ('gulp-real-favicon');
+var FAVICON_DATA_FILE = 'faviconData.json';
+
 // Переменные
 /**
  * Символьный тип текущей среды (production|development)
@@ -93,7 +96,7 @@ const FILE_MAP = {
     ],
     JS: [
         [
-            Path.join(PATH_MAP.BOWER, DIR_NAME_MAP.ANGULAR, 'angular.js'),
+            Path.join(PATH_MAP.BOWER, DIR_NAME_MAP.ANGULAR, 'angular.min.js'),
             Path.join(DIR_NAME_MAP.BOWER),
             Path.join(PATH_MAP.ASSETS, DIR_NAME_MAP.VENDOR),
         ],
@@ -146,8 +149,9 @@ Gulp
     // Удаление всех подготовленных файлов приложения
     .task('clean', function() {
         return Del([PATH_MAP.APP]);
-    })
+    });
     // Компиляция шаблона
+Gulp
     .task(
         'compile-template',
         function ()
@@ -158,8 +162,9 @@ Gulp
                 .pipe(GRename(FILE_MAP.MAIN_TEMPLATE[1]))
                 .pipe(Gulp.dest(FILE_MAP.MAIN_TEMPLATE[2]));
         }
-    )
+    );
     // Компиляция стилей
+Gulp
     .task(
         'compile-style',
         function ()
@@ -173,8 +178,9 @@ Gulp
                 .pipe(GRename(FILE_MAP.MAIN_STYLE[1]))
                 .pipe(Gulp.dest(FILE_MAP.MAIN_STYLE[2]));
         }
-    )
+    );
     // Компиляция скриптов
+Gulp
     .task(
         'compile-script',
         function ()
@@ -184,8 +190,9 @@ Gulp
                 .pipe(GRename(FILE_MAP.MAIN_SCRIPT[1]))
                 .pipe(Gulp.dest(FILE_MAP.MAIN_SCRIPT[2]));
         }
-    )
+    );
     // Копирования данных
+Gulp
     .task(
         'copy-data',
         function()
@@ -202,8 +209,9 @@ Gulp
 
             return stream;
         }
-    )
+    );
     // Копирования стилей
+Gulp
     .task(
         'copy-css',
         function()
@@ -220,7 +228,8 @@ Gulp
 
             return stream;
         }
-    )
+    );
+Gulp
     // Копирования скриптов
     .task(
         'copy-js',
@@ -238,7 +247,8 @@ Gulp
 
             return stream;
         }
-    )
+    );
+Gulp
     // Копирования изображений
     .task(
         'copy-images',
@@ -261,7 +271,8 @@ Gulp
 
             return stream;
         }
-    )
+    );
+Gulp
     // Копирования шрифтов
     .task(
         'copy-fonts',
@@ -293,37 +304,113 @@ Gulp
         }
     );
 
+Gulp
+    .task('generate-favicon', function(done) {
+        realFavicon.generateFavicon({
+            masterPicture: 'src/data/faviconMaster.png', // TODO: to var
+            dest: Path.resolve(__dirname) , // TODO: to var
+            iconsPath: '/', // TODO: to var
+            design: {
+                ios: {
+                    pictureAspect: 'noChange',
+                    assets: {
+                        ios6AndPriorIcons: false,
+                        ios7AndLaterIcons: false,
+                        precomposedIcons: false,
+                        declareOnlyDefaultIcon: true
+                    }
+                },
+                desktopBrowser: {},
+                windows: {
+                    pictureAspect: 'noChange',
+                    backgroundColor: '#9f00a7',
+                    onConflict: 'override',
+                    assets: {
+                        windows80Ie10Tile: false,
+                        windows10Ie11EdgeTiles: {
+                            small: false,
+                            medium: true,
+                            big: false,
+                            rectangle: false
+                        }
+                    }
+                },
+                androidChrome: {
+                    pictureAspect: 'noChange',
+                    themeColor: '#ffffff',
+                    manifest: {
+                        display: 'standalone',
+                        orientation: 'notSet',
+                        onConflict: 'override',
+                        declared: true
+                    },
+                    assets: {
+                        legacyIcon: false,
+                        lowResolutionIcons: false
+                    }
+                },
+                safariPinnedTab: {
+                    pictureAspect: 'blackAndWhite',
+                    threshold: 43.75,
+                    themeColor: '#5bbad5'
+                }
+            },
+            settings: {
+                scalingAlgorithm: 'Mitchell',
+                errorOnImageTooSmall: false,
+                readmeFile: false,
+                htmlCodeFile: false,
+                usePathAsIs: false
+            },
+            markupFile: FAVICON_DATA_FILE
+        }, function() {
+            done();
+        });
+    });
+
+Gulp
+    .task('check-for-favicon-update', function(done) {
+        var currentVersion = JSON.parse(FS.readFileSync(FAVICON_DATA_FILE)).version;
+        realFavicon.checkForUpdates(currentVersion, function(err) {
+            if (err) {
+                throw err;
+            }
+        });
+    });
+
+
 // Копирование файлов приложения
 Gulp
     .task(
         'copy',
-        [
+        Gulp.series(
             'copy-data',
             'copy-js',
             'copy-css',
             'copy-images',
             'copy-fonts',
-        ]
+        )
     );
 
 // Компиляция приложения
 Gulp
     .task(
         'compile',
-        [
+        Gulp.series(
             'compile-template',
             'compile-style',
             'compile-script',
-        ]
+        )
     );
 
 // Команда по умолчанию
-Gulp.task(
-    'default',
-    ['clean'],
-    function ()
-    {
-        Gulp.start('copy');
-        Gulp.start('compile');
-    }
-);
+Gulp
+    .task(
+        'default',
+        Gulp.series(
+            'clean',
+            'copy',
+            'compile',
+            'generate-favicon'
+        )
+    );

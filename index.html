@@ -4,9 +4,16 @@
         <title>Алексей Степанков</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#9f00a7">
+        <meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" href="app/assets/app.css" />
         <link rel="stylesheet" href="app/assets/vendor/angular/angular-csp.css" />
-        <script src="app/assets/vendor/angular/angular.js"></script>
+        <script src="app/assets/vendor/angular/angular.min.js"></script>
     </head>
     <body class="loading" ng-app="app">
         <div id="wrapper">
@@ -40,7 +47,7 @@
         <ul class="icons">
             <li>
                 <a
-                        href="https://goo.gl/xSWiD3"
+                        href="https://github.com/alexstepankov"
                         target="_blank"
                         class="fa-github">
                     github
@@ -48,7 +55,7 @@
             </li>
             <li>
                 <a
-                        href="https://goo.gl/Xyovpg"
+                        href="https://www.linkedin.com/in/alexstepankov/"
                         target="_blank"
                         class="fa-linkedin">
                     linkedin
@@ -56,7 +63,7 @@
             </li>
             <li>
                 <a
-                        href="https://goo.gl/sHKMLe"
+                        href="https://stackoverflow.com/users/2728796/alexstepankov"
                         target="_blank"
                         class="fa-stack-overflow">
                     stackoverflow
@@ -65,7 +72,22 @@
         </ul>
 
         
+        <a
+                href="#"
+                class="icon fa-chevron-circle-down"
+                ng-click="profile.setExpand()"
+                ng-class="profile.isExpand() ? 'active' : ''"
+        >
+            Подробнее
+        </a>
+        
     </main>
+    
+    <footer ng-show="profile.isExpand()">
+        <hr />
+        <h2>Подробнее</h2>
+        <hr />
+    </footer>
     
 </section>
                     <section class="block right-block" ng-controller="PortfolioController as portfolio">
