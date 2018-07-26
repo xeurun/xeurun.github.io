@@ -410,7 +410,6 @@ Gulp
         Gulp.series(
             'clean',
             'copy',
-            'compile',
-            'generate-favicon'
+            'compile'
         )
     );

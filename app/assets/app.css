@@ -2711,6 +2711,7 @@ dl {
         border-left: 0; }
 
 .left-block {
+  display: none;
   position: absolute;
   left: 1em;
   top: 1em; }
@@ -2742,6 +2743,7 @@ dl {
       width: calc(100% + 4em); } }
 
 .right-block {
+  display: none;
   position: absolute;
   right: 1em;
   top: 1em; }
