@@ -2711,7 +2711,9 @@ dl {
         border-left: 0; }
 
 .me {
-  font-weight: bold; }
+  font-weight: bold;
+  letter-spacing: 0.5em;
+  margin-left: 0.5em; }
 
 .left-block {
   display: none;
