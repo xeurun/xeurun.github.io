@@ -1,12 +1,15 @@
 include: [".well-known"]
 exclude:
-  - src
   - _markup
-  - README.md
+  - src
+  - .editorconfig
+  - .env.dist
   - .gitignore
+  - docker-compose.yaml
   - bower.json
   - gulpfile.json
   - LICENSE
   - package.json
   - package-lock.json
+  - README.md
   - TODO

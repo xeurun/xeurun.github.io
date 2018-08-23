@@ -1,6 +1,6 @@
 {
-  "name": "alexstepankov-alexstepankov.github.io",
-  "description": "Alex Stepankov webpage",
+  "name": "xeurun-xeurun.github.io",
+  "description": "Alexey Stepankov personal webpage",
   "moduleType": [
     "globals",
     "node",
@@ -20,9 +20,9 @@
     "./src/main.js",
     "./src/main.scss"
   ],
-  "homepage": "https://alexstepankov.github.io/",
+  "homepage": "https://xeurun.github.io/",
   "authors": [
-    "Alex Stepankov <xeurun@yahoo.com>"
+    "Alexey Stepankov <xeurun@yahoo.com>"
   ],
   "ignore": [
     "**/.*",
@@ -33,6 +33,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexstepankov/alexstepankov.github.io.git"
+    "url": "https://github.com/xeurun/xeurun.github.io.git"
   }
 }

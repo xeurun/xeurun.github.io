@@ -6,3 +6,6 @@ bower_components
 
 # Node
 node_modules
+
+# Env
+.env
