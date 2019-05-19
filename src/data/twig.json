@@ -1,9 +1,9 @@
 {
   "me": {
-    "name": "Алексей",
-    "surname": "Степанков"
+    "name": "Alexey",
+    "surname": "Stepankov"
   },
-  "position": "Ведущий разработчик",
+  "position": "Senior Developer",
   "env": {
     "env": "",
     "path": {

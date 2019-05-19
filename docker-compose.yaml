@@ -1,24 +1,27 @@
 version: '3.6'
-networks:
-  public:
-    external: true
-    name: public
 
 services:
   node:
     container_name: ${DOCKER_PROJECT_NAME}-node
     build:
       context: .docker
-      dockerfile: Dockerfile-node
+      dockerfile: node.Dockerfile
       args:
-        VERSION: 10-alpine
+        DOCKER_PROJECT_DIR: ${DOCKER_PROJECT_DIR}
+        VERSION: 12.2
         HTTP_PORT: ${HTTP_PORT}
-    environment:
-      PW: app
-    entrypoint: ["http-server", "-p", $HTTP_PORT]
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
     networks:
       - public
     ports:
       - ${HTTP_PORT}:${HTTP_PORT}
     volumes:
-      - .:/app
+      - ./:${DOCKER_PROJECT_DIR}
+      # This lets you avoid setting up Git again in the container
+      - ~/.gitconfig:/root/.gitconfig:ro
+
+networks:
+  public:
+    external: true
+    name: public

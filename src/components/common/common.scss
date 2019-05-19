@@ -1,21 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300');
 
-// Загружаем хэлперы
 @import 'sass/helpers/vars';
 @import 'sass/helpers/functions';
 @import 'sass/helpers/mixins';
-@import '../../../bower_components/skel/dist/skel';
 
-// Загружаем базовые стили страницы и типографики
+@import 'skel/_skel';
+
 @import 'sass/base/page';
 @import 'sass/base/typography';
 
-// Загружаем базовые стили компонентов
 @import 'sass/components/block';
 @import 'sass/components/icon';
 @import 'sass/components/list';
 
-// Загружаем базовые стили секций
 @import 'sass/layout/wrapper';
 @import 'sass/layout/footer';
 

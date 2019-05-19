@@ -1,9 +1,6 @@
 # IDE
 .idea
 
-# Bower
-bower_components
-
 # Node
 node_modules
 
