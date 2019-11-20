@@ -15,7 +15,7 @@
     "production": "gulp -p"
   },
   "devDependencies": {
-    "angular": "^1.6.4",
+    "angular": "^1.7.9",
     "debug": "^3.2.6",
     "del": "^2.2.2",
     "font-awesome": "^4.7.0",
