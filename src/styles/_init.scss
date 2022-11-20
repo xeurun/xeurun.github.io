@@ -20,20 +20,6 @@ $font: (
   weight: 300,
 );
 
-$palette: (
-  white: #ffffff,
-  black: #000000,
-  bg: #ffffff,
-  bg-alt: #e1dfe8,
-  fg: #414f57,
-  fg-bold: #313f47,
-  fg-light: #616f77,
-  border: #c8cccf,
-  accent1: #ffa596,
-  accent2: #00e4ff,
-  highlight: #ff7496,
-);
-
 $size: (
   border-radius: 4px,
   border-width: 1px,
@@ -54,10 +40,6 @@ $duration: (
 
 @function _size($keys...) {
   @return val($size, $keys...);
-}
-
-@function _palette($keys...) {
-  @return val($palette, $keys...);
 }
 
 @function _font($keys...) {
@@ -96,54 +78,46 @@ $duration: (
   }
 }
 
-/* color palette from <https://github.com/vuejs/theme> */
-:root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
-
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
-
-  --vt-c-indigo: #2c3e50;
-
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
-}
-
 /* semantic color variables for this project */
 :root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
+  --base-white: #ffffff;
+  --base-white-soft: #f8f8f8;
+  --base-white-border: #c8cccf;
+  --base-black: #181818;
+  --base-black-soft: #222222;
+  --base-black-border: #282828;
 
   --section-gap: 160px;
+
+  --color-app-text: var(--base-black-soft);
+  --color-app-text-bold: var(--base-black-soft);
+  --color-app-white: var(--base-white);
+  --color-app-black: var(--base-black-soft);
+  --color-app-bg: var(--base-white);
+  --color-app-highlight: #ff7496;
+  --color-app-border: var(--base-white-border);
+  --color-app-accent1: #ffa596;
+  --color-app-accent1-rgb: 255,165,150;
+  --color-app-accent2: #00e4ff;
+  --color-app-accent2-rgb: 0,228,255;
+
+  --random-bg: url('https://picsum.photos/1920/1080/?random&blur');
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
+    --color-app-text: var(--base-white-soft);
+    --color-app-text-bold: var(--base-white);
+    --color-app-white: var(--base-black-soft);
+    --color-app-black: var(--base-white);
+    --color-app-bg: var(--base-black-soft);
+    --color-app-highlight: #ff7496;
+    --color-app-border: var(--base-white-border);
+    --color-app-accent1: #e1dfe8;
+    --color-app-accent1-rgb: 225, 223, 232;
+    --color-app-accent2: #616f77;
+    --color-app-accent2-rgb: 97, 111, 119;
 
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
+    --random-bg: url('https://picsum.photos/1920/1080/?random&blur&grayscale');
   }
 }

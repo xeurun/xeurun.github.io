@@ -83,9 +83,9 @@
   max-width: 100%;
   min-width: 27em;
   padding: 3em 1em;
-  box-shadow: 0 0 1px 1px _palette(black) inset;
+  box-shadow: 0 0 1px 1px var(--color-app-black) inset;
 
-  background: _palette(bg);
+  background: var(--color-app-bg);
   border-radius: _size(border-radius);
   cursor: default;
   opacity: 0.95;
@@ -118,8 +118,8 @@
       display: block;
       margin: 0 auto;
       border-radius: 100%;
-      box-shadow: 0 0 0px 1px _palette(border) inset;
-      background-color: _palette(white);
+      box-shadow: 0 0 0px 1px var(--color-app-border) inset;
+      background-color: var(--color-app-white);
       pointer-events: none;
     }
 
@@ -132,7 +132,7 @@
       width: calc(100% + 2em);
       height: _size(border-width);
       z-index: -1;
-      background: _palette(border);
+      background: var(--color-app-border);
     }
   }
 
@@ -158,13 +158,13 @@
     width: 4em;
     height: 4em;
     border-radius: 100%;
-    border: solid 1px _palette(border);
-    color: _palette(border);
+    border: solid 1px var(--color-app-border);
+    color: var(--color-app-border);
   }
 
   a:hover {
-    border-color: _palette(black);
-    color: _palette(black);
+    border-color: var(--color-app-black);
+    color: var(--color-app-black);
   }
 
   @media screen and (max-width: 480px) {
@@ -178,15 +178,13 @@ footer {
   align-self: flex-end;
   width: 100%;
   padding: _size(element-margin) 0 0 0;
-  color: rgba(255, 255, 255, 0.75);
   cursor: default;
   text-align: center;
 
   span {
-    box-shadow: 0 0 1px 1px _palette(black) inset;
-    background: _palette(white);
+    box-shadow: 0 0 1px 1px var(--color-app-black) inset;
+    background: var(--color-app-white);
     border-radius: 1em;
-    color: _palette(black);
     padding: 5px 15px;
   }
 }

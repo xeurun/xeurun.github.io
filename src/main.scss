@@ -37,16 +37,14 @@ body {
 	height: 100%;
   min-height: 100vh;
 
-  color: var(--color-text);
-  background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-	background-color: _palette(bg);
-	background-image: url("assets/overlay.png"), linear-gradient(60deg, #{transparentize(_palette(accent1), 0.5)} 5%, #{transparentize(_palette(accent2), 0.65)});
+	background-color: var(--color-app-bg);
+	background-image: url("assets/overlay.png"), linear-gradient(60deg, rgba(var(--color-app-accent1-rgb), 0.5) 5%, rgba(var(--color-app-accent2-rgb), 0.65));
 
   background-repeat:		repeat,			no-repeat,			no-repeat;
 	background-size:		100px 100px,	cover,				cover;
@@ -54,7 +52,7 @@ body {
 	background-attachment:	fixed,			fixed,				fixed;
 
 	&.random-background {
-		background-image: url("assets/overlay.png"), linear-gradient(60deg, #{transparentize(_palette(accent1), 0.5)} 5%, #{transparentize(_palette(accent2), 0.65)}), url("https://unsplash.it/1920/1080/?random&blur");
+		background-image: url("assets/overlay.png"), linear-gradient(60deg, rgba(var(--color-app-accent1-rgb), 0.5) 5%, rgba(var(--color-app-accent2-rgb), 0.65)), var(--random-bg);
 	}
 
 	&:after {
@@ -68,8 +66,8 @@ body {
 		opacity: 0;
 		z-index: 1;
 
-		background-color: _palette(bg);
-		background-image: url("assets/overlay.png"), linear-gradient(60deg, #{transparentize(_palette(accent1), 0.5)} 5%, #{transparentize(_palette(accent2), 0.65)});
+		background-color: var(--color-app-bg);
+		background-image: url("assets/overlay.png"), linear-gradient(60deg, rgba(var(--color-app-accent1-rgb), 0.5) 5%, rgba(var(--color-app-accent2-rgb), 0.65));
 		background-repeat:		repeat,			no-repeat;
 		background-size:		100px 100px,	cover;
 		background-position:	top left,		center center;

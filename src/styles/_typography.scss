@@ -1,5 +1,5 @@
 body, input, select, textarea {
-	color: _palette(fg);
+	color: var(--color-app-text);
 	font-family: _font(family);
 	font-size: 14pt;
 	font-weight: _font(weight);
@@ -27,16 +27,16 @@ a {
 	}
 
 	&:hover {
-		color: _palette(highlight);
+		color: var(--color-app-highlight);
 	}
 
 	&.active {
-		color: _palette(highlight);
+		color: var(--color-app-highlight);
 	}
 }
 
 strong, b {
-	color: _palette(fg-bold);
+	color: var(--color-app-text-bold);
 }
 
 em, i {
@@ -48,7 +48,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: _palette(fg-bold);
+	color: var(--color-app-text-bold);
 	line-height: 1.5;
 	margin: 0 0 (_size(element-margin) * 0.5) 0;
 
@@ -104,6 +104,6 @@ sup {
 
 hr {
 	border: 0;
-	border-bottom: solid _size(border-width) _palette(border);
+	border-bottom: solid _size(border-width) var(--color-app-border);
 	margin: (_size(element-margin) * 2) 0;
 }
