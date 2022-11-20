@@ -1,10 +1,146 @@
-$fa-font-path: "vendor/font-awesome/fonts" !default;
-@import "../node_modules/font-awesome/scss/font-awesome";
+@import "normalize.css";
 
-$asset-fonts-path: "common/fonts" !default;
-$asset-images-path: "common/images" !default;
-@import 'components/common/common';
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
 
-@import 'components/social/social';
-@import 'components/profile/profile';
-@import 'components/portfolio/portfolio';
+// @include skel-layout((
+// 	reset:    'full',
+// 	boxModel: 'border'
+// ));
+
+@include breakpoint(xsmall) {
+	html, body {
+		min-width: 320px;
+	}
+}
+
+body {
+	&.loading {
+		*, *:before, *:after {
+			animation: none !important;
+			transition: none !important;
+		}
+	}
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+  min-height: 100vh;
+
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+	background-color: _palette(bg);
+	background-image: url("assets/overlay.png"), linear-gradient(60deg, #{transparentize(_palette(accent1), 0.5)} 5%, #{transparentize(_palette(accent2), 0.65)});
+
+  background-repeat:		repeat,			no-repeat,			no-repeat;
+	background-size:		100px 100px,	cover,				cover;
+	background-position:	top left,		center center,		bottom center;
+	background-attachment:	fixed,			fixed,				fixed;
+
+	&.random-background {
+		background-image: url("assets/overlay.png"), linear-gradient(60deg, #{transparentize(_palette(accent1), 0.5)} 5%, #{transparentize(_palette(accent2), 0.65)}), url("https://unsplash.it/1920/1080/?random&blur");
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: inherit;
+		opacity: 0;
+		z-index: 1;
+
+		background-color: _palette(bg);
+		background-image: url("assets/overlay.png"), linear-gradient(60deg, #{transparentize(_palette(accent1), 0.5)} 5%, #{transparentize(_palette(accent2), 0.65)});
+		background-repeat:		repeat,			no-repeat;
+		background-size:		100px 100px,	cover;
+		background-position:	top left,		center center;
+
+		transition: opacity #{_duration(bg)} ease-out;
+	}
+
+	&.loading {
+		&:after {
+			opacity: 1;
+		}
+	}
+}
+
+#app {
+  // max-width: 1280px;
+  // margin: 0 auto;
+  // padding: 2rem;
+
+  // font-weight: normal;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  perspective: 1000px;
+  position: relative;
+  min-height: 100%;
+  padding: _size(element-margin);
+  z-index: 2;
+
+  > * {
+    z-index: 1;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+  }
+
+  @include breakpoint(xxsmall) {
+    padding: (_size(element-margin) * 0.5);
+  }
+
+  body.is-ie & {
+    height: 100%;
+  }
+}
+
+// a,
+// .green {
+//   text-decoration: none;
+//   color: hsla(160, 100%, 37%, 1);
+//   transition: 0.4s;
+// }
+
+// @media (hover: hover) {
+//   a:hover {
+//     background-color: hsla(160, 100%, 37%, 0.2);
+//   }
+// }
+
+// @media (min-width: 1024px) {
+//   body {
+//     display: flex;
+//     place-items: center;
+//   }
+
+//   #app {
+//     display: grid;
+//     grid-template-columns: 1fr 1fr;
+//     padding: 0 2rem;
+//   }
+// }

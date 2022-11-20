@@ -1,11 +1,46 @@
-# IDE
-.idea
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Custom
+.cache
+custom.config.json
+
+# Compiled output
+/dist-ssr
+/tmp
+/out-tsc
+/bazel-out
 
 # Node
-node_modules
+/node_modules
+npm-debug.log
+yarn-error.log
 
-# Env
-.env
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-# App
-dist
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db

@@ -1,9 +1,0 @@
-.right-block {
-	@if($env == 'production') {
-		display: none;
-	}
-
-	position: absolute;
-	right: 1em;
-	top: 1em;
-}

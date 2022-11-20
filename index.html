@@ -1,117 +1,84 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Alexey Stepankov</title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#9f00a7">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="stylesheet" href="app/assets/app.css"/>
-  <link rel="stylesheet" href="app/assets/vendor/angular/angular-csp.css"/>
-  <script src="app/assets/vendor/angular/angular.min.js"></script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124541017-1"></script>
-  <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'UA-124541017-1');
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Alexey Stepankov</title>
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/src/assets/favicon/apple-touch-icon.png"
+  >
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/src/assets/favicon/favicon-32x32.png"
+  >
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/src/assets/favicon/favicon-16x16.png"
+  >
+  <link
+    rel="manifest"
+    href="/src/assets/favicon/site.webmanifest"
+  >
+  <link
+    rel="mask-icon"
+    href="/src/assets/favicon/safari-pinned-tab.svg"
+    color="#5bbad5"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,900;1,400&display=swap"
+    rel="stylesheet"
+  >
+  <meta
+    name="msapplication-TileColor"
+    content="#9f00a7"
+  >
+  <meta
+    name="theme-color"
+    content="#ffffff"
+  >
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-124541017-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-124541017-1');
 
   </script>
 </head>
-<body class="loading" ng-app="app">
-<div id="wrapper">
-  <main>
-      <section class="block left-block" ng-controller="SocialController as social">
-    <header>
-        <h1>Я в сети</h1>
-    </header>
-    <footer>
-        <ul class="links" ng-init="social.loadLinks()">
-            <li ng-repeat="link in social.getLinks()">
-                <a
-                        href="[[ link.name ]]"
-                        target="_blank"
-                >
-                    [[ link.url ]]
-                </a>
-            </li>
-        </ul>
-    </footer>
-</section>
-      <section class="block center-block" ng-controller="ProfileController as profile">
-    <header>
-        <span class="avatar">
-            <img src="app/assets/profile/images/avatar.png" alt=""/>
-        </span>
-        <h1 class="me">Alexey<br/>Stepankov</h1>
-        <p>Senior Developer</p>
-    </header>
-    <main>
-        <ul class="icons">
-            <li>
-                <a
-                        href="https://github.com/xeurun"
-                        target="_blank"
-                        class="fa-github">
-                    github
-                </a>
-            </li>
-            <li>
-                <a
-                        href="https://www.linkedin.com/in/alexeystepankov/"
-                        target="_blank"
-                        class="fa-linkedin">
-                    linkedin
-                </a>
-            </li>
-            <li>
-                <a
-                        href="https://stackoverflow.com/story/alexeystepankov"
-                        target="_blank"
-                        class="fa-stack-overflow">
-                    stackoverflow
-                </a>
-            </li>
-        </ul>
 
-        
-    </main>
-    
-</section>
-
-      <section class="block right-block" ng-controller="PortfolioController as portfolio">
-    <header>
-        <h1>Портфолио</h1>
-    </header>
-    <footer>
-        <ul class="projects" ng-init="portfolio.loadProjects()">
-            <li ng-repeat="project in portfolio.getProjects()">
-                Проект #[[ project.name ]]
-            </li>
-        </ul>
-    </footer>
-</section>
-    </main>
-  <footer id="footer">
-    <ul class="copyright">
-      <li class="me">&copy; Alexey Stepankov</li>
-    </ul>
-  </footer>
-</div>
-<script src="app/assets/app.js"></script>
-<script src="app/assets/common/common.js"></script>
-<script src="app/assets/common/js/providers/FileProvider.js"></script>
-<script src="app/assets/common/js/providers/FakeProvider.js"></script>
-<script src="app/assets/common/js/services/CrawlerService.js"></script>
-<script src="app/assets/social/js/controllers/SocialController.js"></script>
-<script src="app/assets/profile/js/controllers/ProfileController.js"></script>
-<script src="app/assets/portfolio/js/controllers/PortfolioController.js"></script>
+<body class="loading">
+  <div id="app"></div>
+  <script
+    type="module"
+    src="/src/main.ts"
+  ></script>
 </body>
+
 </html>

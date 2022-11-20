@@ -1,0 +1,64 @@
+{
+  "name": "Node.js & TypeScript",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+  "workspaceFolder": "/workspace",
+
+	// Use this environment variable if you need to bind mount your local source code into a new container.
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": ".",
+    "COMPOSE_PROJECT_NAME": "xgi_devcontainer"
+  },
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/yamllint:1": {}
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+        "dbaeumer.vscode-eslint",
+        "angular.ng-template",
+        "hookyqr.beautify",
+        "pranaygp.vscode-css-peek",
+        "editorconfig.editorconfig",
+        "donjayamanne.githistory",
+        "felipecaputo.git-project-manager",
+        "eamodio.gitlens",
+        "spywhere.guides",
+        "ecmel.vscode-html-css",
+        "ritwickdey.live-sass",
+        "eg2.vscode-npm-script",
+        "christian-kohler.npm-intellisense",
+        "jebbs.plantuml",
+        "esbenp.prettier-vscode",
+        "chrmarti.regex",
+        "mutantdino.resourcemonitor",
+        "humao.rest-client",
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "visualstudioexptteam.vscodeintellicode",
+        "lihui.vs-color-picker",
+        "funkyremi.vscode-google-translate",
+        "dotjoshjohnson.xml",
+        "redhat.vscode-yaml",
+        "dbaeumer.jshint",
+        "davidanson.vscode-markdownlint",
+        "2gua.rainbow-brackets",
+        "gruntfuggly.todo-tree"
+			]
+		}
+	},
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  "remoteUser": "node"
+}

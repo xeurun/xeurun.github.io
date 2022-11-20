@@ -1,9 +1,0 @@
-.left-block {
-  @if($env == 'production') {
-    display: none;
-  }
-
-  position: absolute;
-  left: 1em;
-  top: 1em;
-}
