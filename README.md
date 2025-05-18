@@ -1,7 +1,14 @@
 # xeurun.github.io
 
+## DIR
+
+- .devcontainer
+- .github
+- .markup
+- .vscode
+- .well-known
+
 ## TODO
 
-* Move to webpack
-* Add blocks
-* Add i18n
+- Add blocks
+- Add i18n

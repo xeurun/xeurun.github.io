@@ -1,0 +1,24 @@
+{
+  "info": {
+    "name": [
+      "Alexey",
+      "Aleksei",
+      "Aleksey",
+      "Alexej",
+      "Aleksej",
+      "Aleksis",
+      "Alessio",
+      "Alexius",
+      "Alexios",
+      "Oleksiy",
+      "Alekseyi",
+      "Aleksay",
+      "Alessio"
+    ],
+    "surname": "Stepankov"
+  },
+  "position": ["TeamLead","Fullstack Developer"],
+  "config": {
+    "updateNameInterval": 3000
+  }
+}

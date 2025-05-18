@@ -7,31 +7,31 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-  <title>Alexey Stepankov</title>
+  <title>Alex Stepankov</title>
   <link
     rel="apple-touch-icon"
     sizes="180x180"
-    href="/src/assets/favicon/apple-touch-icon.png"
+    href="./assets/favicon/apple-touch-icon.png"
   >
   <link
     rel="icon"
     type="image/png"
     sizes="32x32"
-    href="/src/assets/favicon/favicon-32x32.png"
+    href="./assets/favicon/favicon-32x32.png"
   >
   <link
     rel="icon"
     type="image/png"
     sizes="16x16"
-    href="/src/assets/favicon/favicon-16x16.png"
+    href="./assets/favicon/favicon-16x16.png"
   >
   <link
     rel="manifest"
-    href="/src/assets/favicon/site.webmanifest"
+    href="./assets/favicon/site.webmanifest"
   >
   <link
     rel="mask-icon"
-    href="/src/assets/favicon/safari-pinned-tab.svg"
+    href="./assets/favicon/safari-pinned-tab.svg"
     color="#5bbad5"
   >
   <link
@@ -55,30 +55,19 @@
     name="theme-color"
     content="#ffffff"
   >
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=UA-124541017-1"
-  ></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-67ZD6SDTT6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-124541017-1');
-
+    gtag('config', 'G-67ZD6SDTT6');
   </script>
 </head>
 
 <body class="loading">
-  <div id="app"></div>
-  <script
-    type="module"
-    src="/src/main.ts"
-  ></script>
+  <%= require('html-loader!./pages/' + page + '/content.html').default %>
 </body>
 
 </html>

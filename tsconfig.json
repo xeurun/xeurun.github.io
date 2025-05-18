@@ -1,17 +1,7 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "jsx": "preserve",
     "resolveJsonModule": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -23,22 +13,16 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
     "importHelpers": true,
     "useDefineForClassFields": true,
-    "skipLibCheck": true,
-    "noEmit": true,
-    "target": "ESNext",
-    "module": "ESNext",
+    "moduleResolution": "node",
+    "target": "ES6",
+    "module": "CommonJS",
     "lib": [
-      "ESNext",
+      "ES6",
       "DOM"
     ]
   },
-
-  "references": [
-    {
-      "path": "./tsconfig.config.json"
-    }
-  ]
+  "include": ["src/**/*", "src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

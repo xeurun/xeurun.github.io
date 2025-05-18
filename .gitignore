@@ -5,6 +5,7 @@
 custom.config.json
 
 # Compiled output
+/dist
 /dist-ssr
 /tmp
 /out-tsc

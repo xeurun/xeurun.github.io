@@ -1,4 +1,14 @@
-@import "normalize.css";
+
+@import 'styles/_init.scss';
+@import 'styles/_list.scss';
+@import 'styles/_typography.scss';
+
+$fa-font-path: "../node_modules/fontawesome-free/webfonts";
+
+@import "../node_modules/fontawesome-free/scss/fontawesome.scss";
+@import "../node_modules/fontawesome-free/scss/solid.scss";
+@import "../node_modules/fontawesome-free/scss/brands.scss";
+@import "../node_modules/fontawesome-free/scss/regular.scss";
 
 *,
 *::before,
@@ -82,7 +92,7 @@ body {
 	}
 }
 
-#app {
+body {
   // max-width: 1280px;
   // margin: 0 auto;
   // padding: 2rem;

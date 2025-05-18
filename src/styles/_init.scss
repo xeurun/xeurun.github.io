@@ -89,13 +89,14 @@ $duration: (
 
   --section-gap: 160px;
 
+  --color-background-fade: #000000;
   --color-app-text: var(--base-black-soft);
   --color-app-text-bold: var(--base-black-soft);
   --color-app-white: var(--base-white);
   --color-app-black: var(--base-black-soft);
   --color-app-bg: var(--base-white);
   --color-app-highlight: #ff7496;
-  --color-app-border: var(--base-white-border);
+  --color-app-border: var(--base-black-border);
   --color-app-accent1: #ffa596;
   --color-app-accent1-rgb: 255,165,150;
   --color-app-accent2: #00e4ff;

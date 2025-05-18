@@ -1,69 +1,3 @@
-<script setup lang="ts">
-// import { defineComponent } from 'vue'
-
-// defineProps<{
-//   msg: string
-// }>();
-
-// export default defineComponent({
-//   // type inference enabled
-//   props: {
-//     name: String,
-//     msg: { type: String, required: true }
-//   },
-//   data() {
-//     return {
-//       count: 1
-//     }
-//   },
-//   mounted() {
-//     this.name // type: string | undefined
-//     this.msg // type: string
-//     this.count // type: number
-//   }
-// })
-</script>
-
-<template>
-  <main>
-    <div class="block center-block ng-scope">
-      <div class="block-header">
-        <div class="avatar">
-          <img src="./images/avatar3.png" alt="" />
-        </div>
-      </div>
-      <div class="block-main">
-        <h1 class="me">Alexey<br />Stepankov</h1>
-        <p class="details">
-          TeamLead
-          <br />
-          Fullstack Developer
-        </p>
-      </div>
-      <div class="block-footer">
-        <a href="https://github.com/xeurun" target="_blank">
-          <font-awesome-icon icon="fa-brands fa-github" size="2x" />
-        </a>
-
-        <a href="https://www.linkedin.com/in/alexeystepankov/" target="_blank">
-          <font-awesome-icon icon="fa-brands fa-linkedin" size="2x" />
-        </a>
-
-        <a
-          href="https://stackoverflow.com/users/2728796/xeurun"
-          target="_blank"
-        >
-          <font-awesome-icon icon="fa-brands fa-stack-overflow" size="2x" />
-        </a>
-      </div>
-    </div>
-  </main>
-  <footer id="footer">
-    <span class="copyright">&copy; Alexey Stepankov</span>
-  </footer>
-</template>
-
-<style scoped lang="scss">
 .me {
   font-weight: 900;
   letter-spacing: 0.3em;
@@ -77,6 +11,29 @@
 
 .block-main {
   margin: 3em 0;
+
+  .project-button {
+    width: 65px;
+    cursor: pointer;
+
+    svg:last-child {
+      visibility: hidden;
+    }
+  }
+
+  .project-button:hover {
+    span {
+      visibility: hidden;
+    }
+
+    svg:first-child {
+      visibility: hidden;
+    }
+
+    svg:last-child {
+      visibility: visible;
+    }
+  }
 }
 
 .block {
@@ -93,7 +50,9 @@
 
   transform-origin: 50% 50%;
   transform: rotateX(0deg);
-  transition: opacity #{_duration(main)} ease, transform #{_duration(main)} ease;
+  transition:
+    opacity #{_duration(main)} ease,
+    transform #{_duration(main)} ease;
 
   @media (max-width: 480px) {
     min-width: 0;
@@ -118,8 +77,9 @@
       display: block;
       margin: 0 auto;
       border-radius: 100%;
-      box-shadow: 0 0 0px 1px var(--color-app-border) inset;
-      background-color: var(--color-app-white);
+      box-shadow: 0 0 50px 0px var(--color-background-fade) inset;
+      background-color: var(--base-black-soft);
+      //border: 1px solid var(--color-app-white);
       pointer-events: none;
     }
 
@@ -150,6 +110,14 @@
   display: inline-flex;
   width: 100%;
   justify-content: space-evenly;
+
+  .button {
+    box-shadow: 0 0 5px 0px var(--color-app-black);
+  }
+
+  .button:hover {
+    box-shadow: 0 0 5px 0px var(--color-app-black) inset;
+  }
 
   a {
     display: flex;
@@ -188,4 +156,3 @@ footer {
     padding: 5px 15px;
   }
 }
-</style>
